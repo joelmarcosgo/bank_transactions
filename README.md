@@ -27,33 +27,32 @@ O projeto final deve ser entregue como um repositório público com as instruç�
 <br>
 
 # Requisitos da Aplicação
+- Cadastrar uma conta
+- Listar todas as contas
+- Atualizar dados da conta
+- Excluir conta
+- Depositar
+- Sacar
+- Transferir
 
-## Cadastrar uma conta
-## Listar todas as contas
-## Atualizar dados da conta
-## Excluir conta
-## Depositar
-## Sacar
-## Transferir
+### Uma conta deve ter:
+- Número da conta
+- Agencia
+- Saldo
+- Data de abertura
+- Representante
 
-## Uma conta deve ter:
-### Número da conta
-### Agencia
-### Saldo
-### Data de abertura
-### Representante
-
-## Um representante deve ter:
-### CPF
-### Nome
-### Email
-### Data de nascimento
-### Endereço
-### Telefone
+### Um representante deve ter:
+- CPF
+- Nome
+- Email
+- Data de nascimento
+- Endereço
+- Telefone
 
 ## Extras (Não obrigatórios):
 ### Implementar um sistema de extrato para as contas
-## `Foi desenvolvido, utilizando ReactJS, um dashboard para acompanhar o extrato das transações bancárias realizadas na aplicação. Para acessar o repositório do projeto, acesse o link: https://github.com/hereisjohnny2/rentalx`
+## `Foi desenvolvido, utilizando ReactJS, um dashboard para acompanhar o extrato das transações bancárias realizadas na aplicação. Para acessar o repositório do projeto, acesse o link:` <a href="https://github.com/joelmarcosgo/extrato_bancario_frontend">https://github.com/joelmarcosgo/extrato_bancario_frontend</a>
 
 <br>
 
