@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  server:
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - 8080:3333
+    env_file:
+      - .env
+    links:
+      - database
+    command: ['yarn', 'start']
+  database:
+    image: mysql_desafio_backend_arloesitech
+  ports:
+    - 4306
+  volumes:
+    - database-data: /var/lib/mysql
+volumes:
+  database-data: {}
