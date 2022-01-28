@@ -237,17 +237,3 @@ O formato da requisição fica da seguinte forma:
 	"to_agency_number": "0001"
 }
 ```
-
-<br>
-
-, recebendo o `account_owner_id` (ID do representante da conta cadastrado, required, string), o `account_number` (required, string), o `agency_number` (required, string) e o `account_balance` (required, decimal) no corpo da requisição.
-
-O formato da requisição fica da seguinte forma:
-```json
-{
-	"account_owner_id": "d4ccacc5-7f35-46cf-af2e-7bc06b63bc1e", 
-	"account_number": "12345678904", 
-	"agency_number": "0001", 
-	"account_balance": 1234.59
-}
-```
