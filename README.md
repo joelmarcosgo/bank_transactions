@@ -52,7 +52,7 @@ O projeto final deve ser entregue como um repositório público com as instruç�
 
 ## Extras (Não obrigatórios):
 ### Implementar um sistema de extrato para as contas
-## `Foi desenvolvido, utilizando ReactJS, um dashboard para acompanhar o extrato das transações bancárias realizadas na aplicação. Para acessar o repositório do projeto, acesse o link:` <a href="https://github.com/joelmarcosgo/extrato_bancario_frontend">https://github.com/joelmarcosgo/extrato_bancario_frontend</a>
+## `Foi desenvolvido, utilizando ReactJS, um dashboard para acompanhar o extrato das transações bancárias realizadas na aplicação. Para acessar o repositório do projeto, acesse o link:`<a href="https://github.com/joelmarcosgo/extrato_bancario_frontend">https://github.com/joelmarcosgo/extrato_bancario_frontend</a>
 
 <br>
 
