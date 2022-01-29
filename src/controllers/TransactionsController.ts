@@ -45,7 +45,7 @@ export default class TransactionsController {
             to_agency_number
         });
 
-        return response.json(transactionCreated);
+        return response.json(transactionCreated).status(201);
     }
 
 }

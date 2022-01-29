@@ -5,8 +5,10 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     ManyToOne,
-    JoinColumn
+    JoinColumn,
+    Unique
 } from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
 
 import BankAccount from './BankAccount';
   
@@ -46,6 +48,12 @@ class Transaction {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    constructor() {
+        if(!this.id) {
+            this.id = uuidV4();
+        }
+    }
 }
 
 export default Transaction

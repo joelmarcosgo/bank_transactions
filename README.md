@@ -68,10 +68,15 @@ $ yarn
 $ npm install
 
 # Criar a imagem
-$ docker build -t transactions_banking
+$ docker build -t bank_transactions .
 
-# Rodar aplicação em modo de desenvolvimento
+# Rodar aplicação
 $ docker-compose up
+
+# Executar o comando abaixo, para criar as tabelas no banco de dados
+$ yarn db:run
+# ou
+$ npm run db:run
 ```
 
 <br>
@@ -79,11 +84,15 @@ $ docker-compose up
 # Executando os testes automatizados
 
 ```bash
+#Crie um banco de dados Postgres localhost para realizar os testes de integração
+# Comando para criar o database de teste: 
+`CREATE DATABASE bank_transactions_test`
 # Executar os comandos
 $ yarn test
 # ou
 $ npm test
 ```
+# *OBS: Recomendo utilizar o Beekeeper Studio para acompanhar os cadastros no banco. Para usar, acesse o link: <a href="https://www.beekeeperstudio.io/">Para fazer o download.</a>
 
 <br>
 
@@ -115,8 +124,7 @@ O formato da requisição fica da seguinte forma:
 	"phone": "62981832006"
 }
 ```
-### OBS.: essa requisição retorna o objeto cadastrado com id, que será utilizado no cadastro da conta bancária,
-para relacionar a conta bancária com o seu representante.
+### OBS.: essa requisição retorna o objeto cadastrado com id, que será utilizado no cadastro da conta bancária, para relacionar a conta bancária com o seu representante.
 
 ## `PUT /api/owner/:id`
 

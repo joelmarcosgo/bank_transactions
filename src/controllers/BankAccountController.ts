@@ -41,7 +41,7 @@ export default class BankAccountController {
             account_owner_id 
         });
 
-        return response.json(bankAccountCreated);
+        return response.json(bankAccountCreated).status(201);
     }
 
     public async update(request: Request, response: Response): Promise<Response> {
@@ -83,12 +83,13 @@ export default class BankAccountController {
         const bankAccountRepository = getRepository(BankAccount);
 
         const bankAccount = await bankAccountRepository.findOne(id);
+        console.log(bankAccount);
 
         if (!bankAccount) {
             return response.json({ message: "Conta bancária não encontrada!" }).status(404);
         }
 
-        await bankAccountRepository.delete(bankAccount);
+        await bankAccountRepository.delete(bankAccount.id);
 
         return response.status(200).send();
     }

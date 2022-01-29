@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from "tsyringe";
-import { getRepository } from 'typeorm';
+import { getRepository, Repository } from 'typeorm';
 import AccountOwner from '../models/AccountOwner';
 import BankAccount from '../models/BankAccount';
 import { AccountOwnerRepository } from '../repositories/AccountOwnerRepository';
@@ -45,7 +45,7 @@ export default class AccountOwnerController {
             phone
         });
 
-        return response.json(accountOwnerCreated);
+        return response.json(accountOwnerCreated).status(201);
     }
 
     public async update(request: Request, response: Response): Promise<Response> {
@@ -63,7 +63,7 @@ export default class AccountOwnerController {
             city,
             state,
             phone
-         } = request.body;
+        } = request.body;
 
         const isValidDataJson = new ValidDataJsonApi()
         const isValidBody = await isValidDataJson.isValidAccountOwnerToUpdate({name, cpf, email, birth_date, address, address_number, complement, neighborhood, zipcode, city, state, phone})
@@ -73,7 +73,6 @@ export default class AccountOwnerController {
         }
 
         const accountOwnerRepository = getRepository(AccountOwner);
-
         const accountOwnerUpdate = await accountOwnerRepository.findOne(id);
 
         if (!accountOwnerUpdate) {
@@ -106,7 +105,9 @@ export default class AccountOwnerController {
         const bankAccountRepository = getRepository(BankAccount);
         const accountOwnerRepository = getRepository(AccountOwner);
 
-        const checkBankAccountExist = await bankAccountRepository.findOne(id);
+        const checkBankAccountExist = await bankAccountRepository.findOne({
+            where: { account_owner_id: id }
+        });
 
         if (checkBankAccountExist) {
             return response.json({ message: "Representante não pode ser excluído, pois possui conta bancária vinculada!" }).status(400);
@@ -118,7 +119,7 @@ export default class AccountOwnerController {
             return response.json({ message: "Representante não encontrado!" }).status(404);
         }
 
-        await accountOwnerRepository.delete(accountOwner);
+        await accountOwnerRepository.delete(accountOwner.id);
 
         return response.status(200).send();
     }

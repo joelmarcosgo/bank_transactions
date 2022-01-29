@@ -27,7 +27,7 @@ export class CreateAccountOwners1643153197136 implements MigrationInterface {
                     },
                     {
                         name: 'birth_date',
-                        type: 'datetime',
+                        type: 'timestamp',
                     },
                     {
                         name: 'address',

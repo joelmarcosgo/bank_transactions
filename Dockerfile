@@ -2,13 +2,12 @@ FROM node
 
 WORKDIR /usr/app
 
-COPY package.json /usr/app/
+COPY package.json ./
 
-RUN yarn
+RUN npm install
 
-COPY . . 
+COPY . .
 
-EXPOSE 3000
+EXPOSE 3333
 
-
-CMD ["yarn", "start"]
+CMD ["npm", "run", "dev"]

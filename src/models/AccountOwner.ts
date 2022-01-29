@@ -1,15 +1,10 @@
-import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn
-} from 'typeorm';
+import { Entity, Column, CreateDateColumn, UpdateDateColumn, PrimaryColumn } from 'typeorm';
+import { v4 as uuidV4 } from 'uuid';
   
 @Entity('account_owners')
 class AccountOwner {
 
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryColumn()
     id: string;
 
     @Column()
@@ -53,6 +48,12 @@ class AccountOwner {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    constructor() {
+        if (!this.id) {
+            this.id = uuidV4();
+        }
+    }
 }
 
 export default AccountOwner

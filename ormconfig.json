@@ -1,0 +1,16 @@
+{
+    "type": "postgres",
+    "port": 5432,
+    "host": "localhost",
+    "username": "docker",
+    "password": "challenge",
+    "database": "bank_transactions",
+    "migrations": ["./src/database/migrations/*.ts"],
+    "cli": {
+      "migrationsDir": "./src/database/migrations"
+    },
+    "entities": [
+      "./src/models/*.ts"
+    ]
+}
+  
